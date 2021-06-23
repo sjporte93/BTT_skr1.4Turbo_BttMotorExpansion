@@ -282,10 +282,11 @@
  */
 
 
-#if ENABLED(BTT_MOTOR_EXPANSION)
-  //skip lcds
+#if ENABLED(DWIN_CREALITY_LCD)
 
-#elif ENABLED(DWIN_CREALITY_LCD)
+  #if ENABLED(BTT_MOTOR_EXPANSION)
+      #error "CAUTION! DWIN_CREALITY_LCD connot be used with BTT_MOTOR_EXPANSION as it uses required EXP pins. Comment out DWIN_CREALITY_LCD to continue."
+  #endif
 
   // RET6 DWIN ENCODER LCD
   #define BTN_ENC                          EXP1_06_PIN //P1_20
@@ -297,7 +298,7 @@
     #undef SPEAKER
   #endif
 
-#elif HAS_WIRED_LCD && !BTT_MOTOR_EXPANSION
+#elif HAS_WIRED_LCD && NOT BTT_MOTOR_EXPANSION
 
   #if ENABLED(ANET_FULL_GRAPHICS_LCD_ALT_WIRING)
     #error "CAUTION! ANET_FULL_GRAPHICS_LCD_ALT_WIRING requires wiring modifications. See 'pins_BTT_SKR_V1_4.h' for details. Comment out this line to continue."
