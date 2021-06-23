@@ -4,5 +4,7 @@ setup for my 3d printer using a BTTskr1.4 Turbo, BTT EXP-MOT V1.0 and the BIGTRE
 
 this is setup with two x-carriages with sensorless homing, a single y motor with an endstop, and dual z motors/drivers with a bltouch.
 
+all drivers are st to use tmc2209's in configuration.h
+
 I edited two pins files for the board to allow the motor expansion to work as they were assigning the required EXP pins to other features, and renamed the new motors for my needs.
 
