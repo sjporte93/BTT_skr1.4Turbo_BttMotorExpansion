@@ -284,7 +284,7 @@
 
 #if ENABLED(DWIN_CREALITY_LCD)
 
-  #if ENABLED(BTT_MOTOR_EXPANSION)
+  #if ENABLED(BTT_MOTOR_EXPANSION) && !ENABLED(EXP_MOT_USE_EXP2_ONLY)
       #error "CAUTION! DWIN_CREALITY_LCD connot be used with BTT_MOTOR_EXPANSION as it uses required EXP pins. Comment out DWIN_CREALITY_LCD to continue."
   #endif
 
