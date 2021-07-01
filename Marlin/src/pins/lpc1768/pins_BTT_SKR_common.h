@@ -39,19 +39,6 @@
 //#define BOGUS_TEMPERATURE_GRACE_PERIOD    2000
 
 //
-// Steppers
-//
-#ifndef E1_STEP_PIN
-  #define E1_STEP_PIN                      P0_01
-#endif
-#ifndef E1_DIR_PIN
-  #define E1_DIR_PIN                       P0_00
-#endif
-#ifndef E1_ENABLE_PIN
-  #define E1_ENABLE_PIN                    P0_10
-#endif
-
-//
 // Temperature Sensors
 //  3.3V max when defined as an analog input
 //
@@ -166,18 +153,18 @@
   #endif
 
   // M2 on Driver Expansion Module
-  #define X2_STEP_PIN                EXP2_08_PIN
-  #define X2_DIR_PIN                 EXP2_07_PIN
+  #define E1_STEP_PIN                EXP2_08_PIN
+  #define E1_DIR_PIN                 EXP2_07_PIN
   #if !ENABLED(EXP_MOT_USE_EXP2_ONLY)
-    #define X2_ENABLE_PIN            EXP1_03_PIN
-    #define X2_DIAG_PIN              EXP1_08_PIN
-    #define X2_CS_PIN                EXP1_07_PIN
+    #define E1_ENABLE_PIN            EXP1_03_PIN
+    #define E1_DIAG_PIN              EXP1_08_PIN
+    #define E1_CS_PIN                EXP1_07_PIN
     #if HAS_TMC_UART
-      #define X2_SERIAL_TX_PIN       EXP1_07_PIN
-      #define X2_SERIAL_RX_PIN       EXP1_07_PIN
+      #define E1_SERIAL_TX_PIN       EXP1_07_PIN
+      #define E1_SERIAL_RX_PIN       EXP1_07_PIN
     #endif
   #else
-    #define X2_ENABLE_PIN            EXP2_04_PIN
+    #define E1_ENABLE_PIN            EXP2_04_PIN
   #endif
 
   // M3 on Driver Expansion Module
@@ -196,3 +183,30 @@
   #endif
 
 #endif // BTT_MOTOR_EXPANSION
+
+
+//
+// Steppers
+//
+#ifndef E1_STEP_PIN
+  #define E1_STEP_PIN                      P0_01
+#endif
+#ifndef E1_DIR_PIN
+  #define E1_DIR_PIN                       P0_00
+#endif
+#ifndef E1_ENABLE_PIN
+  #define E1_ENABLE_PIN                    P0_10
+#endif
+
+
+//
+// Limit Switches
+//
+#ifdef X2_STALL_SENSITIVITY
+  #define X2_STOP_PIN                  X2_DIAG_PIN
+  #if X2_HOME_TO_MIN
+    #define X2_MAX_PIN                      P1_26  // E0DET
+  #else
+    #define X2_MIN_PIN                      P1_26  // E0DET
+  #endif
+#endif
