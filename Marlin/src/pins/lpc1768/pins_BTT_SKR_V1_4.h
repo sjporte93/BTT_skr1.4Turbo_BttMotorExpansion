@@ -57,7 +57,7 @@
 #define Y_DIAG_PIN                         P1_28  // Y-STOP
 #define Z_DIAG_PIN                         P1_27  // Z-STOP
 #define E0_DIAG_PIN                        P1_26  // E0DET
-#define X2_DIAG_PIN                        P1_25  // E1DET
+#define E1_DIAG_PIN                        P1_25  // E1DET
 
 //
 // Limit Switches
@@ -176,11 +176,11 @@
   #define E0_CS_PIN                        P1_04
 #endif
 
-#define X2_STEP_PIN                        P1_15
-#define X2_DIR_PIN                         P1_14
-#define X2_ENABLE_PIN                      P1_16
-#ifndef X2_CS_PIN
-  #define X2_CS_PIN                        P1_01
+#define E1_STEP_PIN                        P1_15
+#define E1_DIR_PIN                         P1_14
+#define E1_ENABLE_PIN                      P1_16
+#ifndef E1_CS_PIN
+  #define E1_CS_PIN                        P1_01
 #endif
 
 #define TEMP_1_PIN                      P0_23_A0  // A0 (T0) - (67) - TEMP_1_PIN
@@ -235,8 +235,8 @@
   #define E0_SERIAL_TX_PIN                 P1_04
   #define E0_SERIAL_RX_PIN                 P1_04
 
-  #define X2_SERIAL_TX_PIN                 P1_01
-  #define X2_SERIAL_RX_PIN                 P1_01
+  #define E1_SERIAL_TX_PIN                 P1_01
+  #define E1_SERIAL_RX_PIN                 P1_01
 
   // Reduce baud rate to improve software serial reliability
   #define TMC_BAUD_RATE                    19200

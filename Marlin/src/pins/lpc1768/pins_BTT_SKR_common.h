@@ -153,18 +153,18 @@
   #endif
 
   // M2 on Driver Expansion Module
-  #define E1_STEP_PIN                EXP2_08_PIN
-  #define E1_DIR_PIN                 EXP2_07_PIN
+  #define X2_STEP_PIN                EXP2_08_PIN
+  #define X2_DIR_PIN                 EXP2_07_PIN
   #if !ENABLED(EXP_MOT_USE_EXP2_ONLY)
-    #define E1_ENABLE_PIN            EXP1_03_PIN
-    #define E1_DIAG_PIN              EXP1_08_PIN
-    #define E1_CS_PIN                EXP1_07_PIN
+    #define X2_ENABLE_PIN            EXP1_03_PIN
+    #define X2_DIAG_PIN              EXP1_08_PIN
+    #define X2_CS_PIN                EXP1_07_PIN
     #if HAS_TMC_UART
-      #define E1_SERIAL_TX_PIN       EXP1_07_PIN
-      #define E1_SERIAL_RX_PIN       EXP1_07_PIN
+      #define X2_SERIAL_TX_PIN       EXP1_07_PIN
+      #define X2_SERIAL_RX_PIN       EXP1_07_PIN
     #endif
   #else
-    #define E1_ENABLE_PIN            EXP2_04_PIN
+    #define X2_ENABLE_PIN            EXP2_04_PIN
   #endif
 
   // M3 on Driver Expansion Module
